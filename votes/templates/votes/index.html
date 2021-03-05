@@ -1,0 +1,21 @@
+{% extends './base.html' %}
+
+{% block title %}
+    Nos derniers votes
+{% endblock %}
+
+{% block content %}
+{% if dernieres_questions %}
+    <ul>
+    {% for question in dernieres_questions %}
+        <li>
+            <a href="{% url 'detail' question.id %}">
+                {{ question.question_text }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Il n'y a pas de questions disponibles</p>
+{% endif %}
+{% endblock %}
